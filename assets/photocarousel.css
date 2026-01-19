@@ -1,0 +1,41 @@
+fttl-photo-carousel {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding-top: 10px;
+    position: relative;
+    width: 500px;
+
+    > :is(h2, h4) {
+        margin: 0 auto 0 10px;
+    }
+
+    > .image-container {
+        background: black center/cover no-repeat var(--photo);
+        flex: 1;
+        margin-top: 15px;
+    }
+    
+    > button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        padding: 0;
+        top: 50%;
+
+        &.back {
+            left: 0;
+        }
+        
+        &.forward {
+            right: 0;
+        }
+
+        > svg {
+            fill: white;
+            width: 40px;
+        }
+    }
+}
