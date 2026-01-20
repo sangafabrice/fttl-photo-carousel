@@ -2,8 +2,7 @@
 
 import onButtonClick from "./utils/btnClick.js";
 import appendStyle from "./utils/appendStyle.js";
-// $FlowFixMe[cannot-resolve-module]
-import "https://unpkg.com/string-format@2.0.0/index.js";
+import "string-format";
 import btnLeft from "./assets/chevron-left-solid-full.svg";
 import btnRight from "./assets/chevron-right-solid-full.svg";
 import style from "./assets/photocarousel.css";
