@@ -14,12 +14,10 @@ declare function format(string, ...any): string;
 
 // $FlowFixMe[cannot-resolve-name]
 class PhotoCarousel extends HTMLElement {
-    _photoIndex: number;
-    _photos: Array<string>;
+    #photoIndex = 0;
+    #photos: Array<string>;
     
     connectedCallback() {
-        this._photoIndex = 0;
-
         this.innerHTML = format(
             template,
             this.title,
@@ -29,11 +27,11 @@ class PhotoCarousel extends HTMLElement {
         );
         this.innerHTML += appendStyle(style);
 
-        this._photos = this.getAttribute("photos").split(",");
+        this.#photos = this.getAttribute("photos").split(",");
 
         const btnBack = this.querySelector("button.back");
         const btnForward = this.querySelector("button.forward");
-        const onBtnBackClick = onButtonClick.bind(this, this._photos.length - 1);
+        const onBtnBackClick = onButtonClick.bind(this, this.#photos.length - 1);
         const onBtnForwardClick = onButtonClick.bind(this, 1);
 
         this.showPhoto();
@@ -42,16 +40,16 @@ class PhotoCarousel extends HTMLElement {
     }
 
     updatePhotoIndex(delta: number = 1) {
-        this._photoIndex += delta;
-        this._photoIndex %= this._photos.length;
+        this.#photoIndex += delta;
+        this.#photoIndex %= this.#photos.length;
     }
 
     showPhoto() {
-        this.style.setProperty("--photo", `url(${this._photos[this._photoIndex]})`);
+        this.style.setProperty("--photo", `url(${this.#photos[this.#photoIndex]})`);
     }
 }
 
-/*:: declare export { PhotoCarousel }; */
+declare export { PhotoCarousel };
 
 // $FlowFixMe[cannot-resolve-name]
 if (!customElements.get("fttl-photo-carousel"))
