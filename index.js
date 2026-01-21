@@ -2,14 +2,15 @@
 
 import onButtonClick from "./utils/btnClick.js";
 import appendStyle from "./utils/appendStyle.js";
-import "string-format";
+// $FlowFixMe[name-already-bound]
+import format from "string-format";
 import btnLeft from "./assets/chevron-left-solid-full.svg";
 import btnRight from "./assets/chevron-right-solid-full.svg";
 import style from "./assets/photocarousel.css";
 // $FlowFixMe[cannot-resolve-module]
 import template from "./assets/photocarousel.html";
 
-declare function format(string, ...any): string;
+/*:: declare function format(string, ...any): string; */
 
 // $FlowFixMe[cannot-resolve-name]
 class PhotoCarousel extends HTMLElement {
