@@ -20,10 +20,12 @@ class PhotoCarousel extends HTMLElement {
     connectedCallback() {
         this.innerHTML = format(
             template,
-            this.title,
-            this.getAttribute("author"),
-            btnLeft,
-            btnRight
+            {
+                title: this.title,
+                author: this.getAttribute("author"),
+                btnBack: btnLeft,
+                btnForward: btnRight
+            }
         );
         this.innerHTML += appendStyle(style);
 
