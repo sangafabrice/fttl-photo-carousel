@@ -12,11 +12,12 @@ fttl-photo-carousel {
     }
 
     > .image-container {
-        background: black center/cover no-repeat var(--photo);
+        background: black center/cover no-repeat
+            var(--photo);
         flex: 1;
         margin-top: 15px;
     }
-    
+
     > button {
         background-color: transparent;
         border: none;
@@ -28,7 +29,7 @@ fttl-photo-carousel {
         &.back {
             left: 0;
         }
-        
+
         &.forward {
             right: 0;
         }

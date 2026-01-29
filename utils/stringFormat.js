@@ -16,13 +16,20 @@ function get(obj: Object, path: string): Object {
  *   format("Hello {name}", { name: "Alice" })
  *   format("{user.email}", { user: { email: "a@b.com" } })
  */
-export default function format(str: string, values: Object): string {
+export default function format(
+    str: string,
+    values: Object
+): string {
     if (typeof str !== "string") {
-        throw new TypeError("First argument must be a string");
+        throw new TypeError(
+            "First argument must be a string"
+        );
     }
 
     if (values == null || typeof values !== "object") {
-        throw new TypeError("Second argument must be an object");
+        throw new TypeError(
+            "Second argument must be an object"
+        );
     }
 
     return str.replace(re, (match, key) => {

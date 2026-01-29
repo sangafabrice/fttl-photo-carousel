@@ -13,29 +13,38 @@ import template from "./assets/photocarousel.html";
 class PhotoCarousel extends HTMLElement {
     #photoIndex = 0;
     #photos: Array<string>;
-    
+
     connectedCallback() {
-        this.innerHTML = format(
-            template,
-            {
-                title: this.title,
-                author: this.getAttribute("author"),
-                btnBack: btnLeft,
-                btnForward: btnRight
-            }
-        );
+        this.innerHTML = format(template, {
+            title: this.title,
+            author: this.getAttribute("author"),
+            btnBack: btnLeft,
+            btnForward: btnRight
+        });
         this.innerHTML += appendStyle(style);
 
-        this.#photos = this.getAttribute("photos").split(",");
+        this.#photos =
+            this.getAttribute("photos").split(",");
 
         const btnBack = this.querySelector("button.back");
-        const btnForward = this.querySelector("button.forward");
-        const onBtnBackClick = onButtonClick.bind(this, this.#photos.length - 1);
-        const onBtnForwardClick = onButtonClick.bind(this, 1);
+        const btnForward = this.querySelector(
+            "button.forward"
+        );
+        const onBtnBackClick = onButtonClick.bind(
+            this,
+            this.#photos.length - 1
+        );
+        const onBtnForwardClick = onButtonClick.bind(
+            this,
+            1
+        );
 
         this.showPhoto();
         btnBack.addEventListener("click", onBtnBackClick);
-        btnForward.addEventListener("click", onBtnForwardClick);
+        btnForward.addEventListener(
+            "click",
+            onBtnForwardClick
+        );
     }
 
     updatePhotoIndex(delta: number = 1) {
@@ -44,7 +53,10 @@ class PhotoCarousel extends HTMLElement {
     }
 
     showPhoto() {
-        this.style.setProperty("--photo", `url(${this.#photos[this.#photoIndex]})`);
+        this.style.setProperty(
+            "--photo",
+            `url(${this.#photos[this.#photoIndex]})`
+        );
     }
 }
 
@@ -53,4 +65,7 @@ declare export { PhotoCarousel };
 // $FlowFixMe[cannot-resolve-name]
 if (!customElements.get("fttl-photo-carousel"))
     // $FlowFixMe[cannot-resolve-name]
-    customElements.define("fttl-photo-carousel", PhotoCarousel);
+    customElements.define(
+        "fttl-photo-carousel",
+        PhotoCarousel
+    );
