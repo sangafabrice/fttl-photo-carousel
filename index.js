@@ -1,10 +1,10 @@
 /** @flow */
 
-import onButtonClick from "./utils/btnClick.js";
 import appendStyle from "./utils/appendStyle.js";
-import format from "./utils/stringFormat.js";
 import btnLeft from "./assets/chevron-left-solid-full.svg";
 import btnRight from "./assets/chevron-right-solid-full.svg";
+import format from "./utils/stringFormat.js";
+import onButtonClick from "./utils/btnClick.js";
 import style from "./assets/photocarousel.css";
 // $FlowFixMe[cannot-resolve-module]
 import template from "./assets/photocarousel.html";
